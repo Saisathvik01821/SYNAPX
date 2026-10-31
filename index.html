@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYNAPX — Understand the Gap. Unlock the Mind.</title>
+<style>
+:root{--bg:#07100b;--panel:#0d1a12;--panel2:#102218;--line:#1d3a27;--green:#39f27b;--green2:#16bd58;--muted:#9bb5a3;--text:#effaf2;--yellow:#f3c969;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% -10%,#12351e 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.shell{display:flex;min-height:100vh}.sidebar{width:245px;padding:26px 18px;background:#08130c;border-right:1px solid var(--line);position:fixed;inset:0 auto 0 0;display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:11px;margin:0 8px 35px}.brandmark{width:39px;height:39px;border:1px solid #39f27b;border-radius:50%;display:grid;place-items:center;color:var(--green);font-weight:900;box-shadow:0 0 18px #39f25544}.brand strong{letter-spacing:2px;font-size:19px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.5px}.navlabel{font-size:10px;color:#6e8e78;letter-spacing:1.7px;margin:0 10px 10px}.nav button{width:100%;border:0;background:transparent;color:#a9c0af;text-align:left;padding:12px 13px;border-radius:10px;margin:3px 0;display:flex;gap:12px;align-items:center}.nav button.active,.nav button:hover{background:#12331d;color:var(--green)}.nav .ico{width:19px;text-align:center}.sidebottom{margin-top:auto;border-top:1px solid var(--line);padding:18px 8px 0;color:var(--muted);font-size:12px}.main{margin-left:245px;width:calc(100% - 245px);padding:26px 34px 50px;max-width:1600px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.eyebrow{color:var(--green);font-size:11px;letter-spacing:2px;font-weight:700}.topbar h1{font-size:25px;margin:4px 0 0}.profile{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:7px 12px;border-radius:30px}.avatar{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#1a5b31;color:#d9ffe5;font-weight:800}.muted{color:var(--muted)}.page{display:none}.page.active{display:block}.hero{background:linear-gradient(115deg,#102c19,#0b1b11 62%,#102b1a);border:1px solid #245735;border-radius:20px;padding:28px;display:flex;justify-content:space-between;gap:20px;align-items:center;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #39f25533;border-radius:50%;right:8%;top:-120px;box-shadow:0 0 0 25px #39f2550b,0 0 0 55px #39f25508}.hero h2{font-size:29px;line-height:1.2;margin:8px 0}.hero p{max-width:610px;color:#b3c9b9;margin:8px 0 18px}.btn{border:0;background:var(--green);color:#06200e;font-weight:800;padding:11px 17px;border-radius:10px}.btn:hover{background:#75ffa0}.btn.secondary{background:#163321;color:#dfffea;border:1px solid #2a5938}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}.hero-art{font-size:76px;color:#3cf47c;text-shadow:0 0 35px #39f25588;padding:0 28px;z-index:1}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:19px 0}.card{background:linear-gradient(145deg,#0e1d13,#0b1710);border:1px solid var(--line);border-radius:15px;padding:19px}.statlabel{color:var(--muted);font-size:12px}.statvalue{font-size:28px;font-weight:800;margin:7px 0 2px}.statnote{font-size:11px;color:var(--green)}.twocol{grid-template-columns:1.35fr 1fr}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:27px 0 13px}.sectionhead h3{margin:0;font-size:17px}.sectionhead span{font-size:12px;color:var(--muted)}.topic{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #1a3021}.topic:last-child{border:0}.topicicon{width:38px;height:38px;border-radius:11px;background:#14351f;display:grid;place-items:center;color:var(--green);font-size:18px}.topicinfo{flex:1}.topicinfo strong{display:block;font-size:13px}.topicinfo small{color:var(--muted)}.progress{height:7px;background:#203629;border-radius:10px;overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#18b957,#63ff91);border-radius:10px}.pill{font-size:10px;border:1px solid #285638;color:var(--green);padding:4px 8px;border-radius:30px}.pill.warn{color:var(--yellow);border-color:#66552a}.activity{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #1a3021}.activity:last-child{border:0}.dot{width:8px;height:8px;background:var(--green);border-radius:50%;margin-top:7px;box-shadow:0 0 9px var(--green)}.activity strong{font-size:13px}.activity small{display:block;color:var(--muted);font-size:11px}.pagehead{margin:4px 0 20px}.pagehead h2{font-size:25px;margin:0 0 5px}.pagehead p{color:var(--muted);margin:0}.subjectgrid{grid-template-columns:repeat(3,1fr)}.subject{cursor:pointer;transition:.2s}.subject:hover{border-color:var(--green);transform:translateY(-2px)}.subject h3{margin:10px 0 4px}.subject p{color:var(--muted);font-size:12px}.questionbox{max-width:820px;margin:auto}.qmeta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:12px}.qtext{font-size:20px;font-weight:700;margin:15px 0 20px}.options{display:grid;gap:10px}.option{padding:14px;border:1px solid var(--line);border-radius:11px;background:#0b1910;text-align:left;color:var(--text)}.option:hover,.option.selected{border-color:var(--green);background:#12331d}.option.correct{border-color:var(--green);background:#123c20}.option.wrong{border-color:var(--red);background:#3a1717}.feedback{margin-top:15px;padding:13px;border-radius:10px;background:#12291a;color:#c9f5d5;display:none}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{display:flex;justify-content:space-between;align-items:center;gap:12px}.reportgrid{grid-template-columns:repeat(2,1fr)}.reportitem{padding:15px;background:#0a170e;border:1px solid var(--line);border-radius:12px}.reportitem strong{display:block;margin-bottom:5px}.reportitem p{margin:0;color:var(--muted);font-size:12px}.tag{display:inline-block;color:var(--yellow);font-size:10px;border:1px solid #655329;border-radius:20px;padding:3px 8px;margin-top:8px}.pathstep{display:flex;gap:13px;padding:15px 0;border-bottom:1px solid var(--line)}.stepnum{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#164426;color:var(--green);font-weight:800;flex-shrink:0}.pathstep p{color:var(--muted);font-size:12px;margin:4px 0}.chartbars{height:160px;display:flex;align-items:end;gap:13px;padding:15px 5px 0}.barwrap{flex:1;text-align:center;color:var(--muted);font-size:10px}.bar{background:linear-gradient(0deg,#159d4b,#55f58b);border-radius:6px 6px 0 0;min-height:4px;margin-bottom:7px}.empty{padding:30px;text-align:center;color:var(--muted)}.toast{position:fixed;right:22px;bottom:22px;background:#163b22;border:1px solid #3b9e58;color:#eaffef;padding:12px 18px;border-radius:11px;display:none;z-index:10;box-shadow:0 10px 40px #0008}.footer{color:#64806b;font-size:11px;margin-top:30px;text-align:center}
+@media(max-width:900px){.sidebar{width:72px;padding:20px 10px}.brand{margin:0 6px 30px}.brand strong,.brand small,.navlabel,.nav button .navtext,.sidebottom{display:none}.nav button{justify-content:center;padding:13px 8px;font-size:18px}.main{margin-left:72px;width:calc(100% - 72px);padding:22px 18px}.stats{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.hero-art{display:none}}
+@media(max-width:560px){.main{padding:18px 12px}.topbar h1{font-size:20px}.profile .pname{display:none}.hero{padding:21px}.hero h2{font-size:24px}.stats{gap:9px}.statvalue{font-size:23px}.subjectgrid,.reportgrid{grid-template-columns:1fr}.card{padding:15px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">S</div><div><strong>SYNAPX</strong><small>BY TEAMSYNTRIX</small></div></div>
+  <div class="navlabel">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard"><span class="ico">⌂</span><span class="navtext">Dashboard</span></button>
+    <button data-page="subjects"><span class="ico">▤</span><span class="navtext">Subjects</span></button>
+    <button data-page="assessment"><span class="ico">◈</span><span class="navtext">Assessment</span></button>
+    <button data-page="diagnosis"><span class="ico">⌕</span><span class="navtext">MistakeDNA</span></button>
+    <button data-page="path"><span class="ico">⌁</span><span class="navtext">Learning Path</span></button>
+    <button data-page="analytics"><span class="ico">▥</span><span class="navtext">Analytics</span></button>
+  </nav>
+  <div class="sidebottom">UNDERSTAND THE GAP.<br>UNLOCK THE MIND.<br><br>Hackathon demo · v1.0</div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><div class="eyebrow">STUDENT INTELLIGENCE PLATFORM</div><h1 id="pageTitle">Your learning dashboard</h1></div><div class="profile"><div class="avatar">S</div><div><strong class="pname">Demo Student</strong><div class="muted" style="font-size:10px">College learner</div></div></div></header>
+
+  <section class="page active" id="dashboard">
+    <div class="hero"><div><div class="eyebrow">WELCOME TO SYNAPX</div><h2>Learn smarter.<br><span style="color:var(--green)">Understand deeper.</span></h2><p>Your learning journey is unique. SYNAPX studies your answers, detects possible knowledge gaps, and helps you strengthen the concepts that matter.</p><button class="btn" onclick="go('subjects')">Start learning →</button></div><div class="hero-art">◉</div></div>
+    <div class="grid stats">
+      <div class="card"><div class="statlabel">Concepts assessed</div><div class="statvalue" id="statAssessed">6</div><div class="statnote">Across your demo profile</div></div>
+      <div class="card"><div class="statlabel">Current mastery</div><div class="statvalue" id="statMastery">68%</div><div class="statnote">Based on demo assessment</div></div>
+      <div class="card"><div class="statlabel">Learning gaps</div><div class="statvalue" id="statGaps">2</div><div class="statnote">Topics to strengthen</div></div>
+      <div class="card"><div class="statlabel">Practice completed</div><div class="statvalue" id="statPractice">4</div><div class="statnote">Activities completed</div></div>
+    </div>
+    <div class="grid twocol">
+      <div class="card"><div class="sectionhead" style="margin-top:0"><h3>Concept mastery</h3><span>Demo profile</span></div>
+        <div id="masteryList">
+          <div class="topic"><div class="topicicon">ƒ</div><div class="topicinfo"><strong>Functions</strong><small>Strong foundation</small><div class="progress"><i style="width:88%"></i></div></div><span class="pill">88%</span></div>
+          <div class="topic"><div class="topicicon">↻</div><div class="topicinfo"><strong>Recursion</strong><small>Needs attention</small><div class="progress"><i style="width:42%"></i></div></div><span class="pill warn">42%</span></div>
+          <div class="topic"><div class="topicicon">⌘</div><div class="topicinfo"><strong>Loops</strong><small>Developing</small><div class="progress"><i style="width:72%"></i></div></div><span class="pill">72%</span></div>
+          <div class="topic"><div class="topicicon">▦</div><div class="topicinfo"><strong>Lists & arrays</strong><small>Needs practice</small><div class="progress"><i style="width:51%"></i></div></div><span class="pill warn">51%</span></div>
+        </div>
+      </div>
+      <div class="card"><div class="sectionhead" style="margin-top:0"><h3>Recent activity</h3><span>Latest updates</span></div>
+        <div class="activity"><i class="dot"></i><div><strong>Recursion assessment analyzed</strong><small>Possible gap: base conditions · Just now</small></div></div>
+        <div class="activity"><i class="dot"></i><div><strong>Functions foundation completed</strong><small>Mastery: 88% · Yesterday</small></div></div>
+        <div class="activity"><i class="dot"></i><div><strong>Learning profile updated</strong><small>4 concepts reviewed · 2 days ago</small></div></div>
+        <div style="margin-top:15px"><button class="btn secondary" onclick="go('diagnosis')">View MistakeDNA report</button></div>
+      </div>
+    </div>
+    <div class="footer">SYNAPX · A TEAMSYNTRIX innovation · Demo data is illustrative</div>
+  </section>
+
+  <section class="page" id="subjects">
+    <div class="pagehead"><h2>Explore subjects</h2><p>Choose a topic to assess your understanding and uncover learning gaps.</p></div>
+    <div class="grid subjectgrid">
+      <div class="card subject" onclick="startAssessment('Python Programming')"><div class="topicicon">Py</div><h3>Python Programming</h3><p>Variables, loops, functions, lists and recursion.</p><span class="pill">7 concepts · Available</span></div>
+      <div class="card subject" onclick="toast('More subjects are coming soon.')"><div class="topicicon">∑</div><h3>Mathematics</h3><p>Algebra, functions, probability and logic.</p><span class="pill warn">Coming soon</span></div>
+      <div class="card subject" onclick="toast('More subjects are coming soon.')"><div class="topicicon">⌘</div><h3>Data Structures</h3><p>Arrays, stacks, queues, trees and graphs.</p><span class="pill warn">Coming soon</span></div>
+    </div>
+    <div class="card" style="margin-top:17px"><h3>How SYNAPX personalizes learning</h3><p class="muted">A short diagnostic assessment gives the system evidence about your current understanding. It then checks prerequisite concepts before recommending what to practice next.</p><button class="btn" onclick="startAssessment('Python Programming')">Take Python diagnostic →</button></div>
+  </section>
+
+  <section class="page" id="assessment">
+    <div class="pagehead"><h2>Diagnostic assessment</h2><p>Answer these questions to help SYNAPX understand your current knowledge.</p></div>
+    <div class="card questionbox" id="quizBox">
+      <div class="empty"><div style="font-size:38px;color:var(--green)">◈</div><h3>Ready to discover your learning gaps?</h3><p>This demo assessment contains five Python questions.</p><button class="btn" onclick="beginQuiz()">Begin assessment</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="diagnosis">
+    <div class="pagehead"><h2>MistakeDNA analysis</h2><p>Understand the patterns behind incorrect answers—not just the score.</p></div>
+    <div class="card" style="margin-bottom:16px"><div class="between"><div><div class="eyebrow">LATEST DIAGNOSTIC INSIGHT</div><h2 style="margin:5px 0">A possible gap in base conditions</h2><p class="muted" style="margin:0">Illustrative analysis from the demo student profile.</p></div><span class="pill warn">Needs verification</span></div></div>
+    <div class="grid reportgrid">
+      <div class="reportitem"><strong>Observed pattern</strong><p>Incorrect choices on questions involving recursive stopping conditions.</p><span class="tag">Conceptual reasoning</span></div>
+      <div class="reportitem"><strong>Possible underlying gap</strong><p>Difficulty identifying when a recursive function should stop.</p><span class="tag">Base condition</span></div>
+      <div class="reportitem"><strong>Evidence to investigate</strong><p>Compare performance on simple conditional statements and recursion tracing.</p><span class="tag">Prerequisite check</span></div>
+      <div class="reportitem"><strong>Recommended next step</strong><p>Practice tracing a function with a clearly defined base condition.</p><span class="tag">Targeted intervention</span></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Important: diagnosis is evidence-based</h3><p class="muted">A wrong answer alone cannot prove why a student struggled. SYNAPX treats this as a hypothesis and uses prerequisite questions and reassessment to verify it.</p><button class="btn secondary" onclick="go('path')">See recommended learning path →</button></div>
+  </section>
+
+  <section class="page" id="path">
+    <div class="pagehead"><h2>Your adaptive learning path</h2><p>A targeted sequence based on the demo student's learning profile.</p></div>
+    <div class="card">
+      <div class="between"><div><div class="eyebrow">RECOMMENDED PATH</div><h3 style="margin:4px 0">Strengthen recursion foundations</h3></div><span class="pill">3 steps</span></div>
+      <div class="pathstep"><div class="stepnum">1</div><div><strong>Review conditional statements</strong><p>Check how conditions control whether a block of code executes.</p><button class="btn secondary" onclick="completeStep(this)">Mark complete</button></div></div>
+      <div class="pathstep"><div class="stepnum">2</div><div><strong>Understand base conditions</strong><p>Learn how a recursive function reaches a stopping point.</p><button class="btn secondary" onclick="completeStep(this)">Mark complete</button></div></div>
+      <div class="pathstep"><div class="stepnum">3</div><div><strong>Trace recursive calls</strong><p>Practice following function calls until the base condition is reached.</p><button class="btn secondary" onclick="completeStep(this)">Mark complete</button></div></div>
+      <div style="margin-top:18px"><button class="btn" onclick="startAssessment('Python Programming')">Verify understanding with reassessment →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="analytics">
+    <div class="pagehead"><h2>Learning analytics</h2><p>Track progress and see whether targeted practice is helping.</p></div>
+    <div class="grid twocol">
+      <div class="card"><h3>Concept mastery</h3><div class="chartbars" id="chartBars">
+        <div class="barwrap"><div class="bar" style="height:88%"></div>Functions</div><div class="barwrap"><div class="bar" style="height:42%"></div>Recursion</div><div class="barwrap"><div class="bar" style="height:72%"></div>Loops</div><div class="barwrap"><div class="bar" style="height:51%"></div>Lists</div>
+      </div></div>
+      <div class="card"><h3>Learning summary</h3><div class="topic"><div class="topicinfo"><strong>Strong concepts</strong><small>Functions, loops</small></div><span class="pill">2</span></div><div class="topic"><div class="topicinfo"><strong>Needs attention</strong><small>Recursion, lists</small></div><span class="pill warn">2</span></div><div class="topic"><div class="topicinfo"><strong>Assessment attempts</strong><small id="attemptCount">0 completed in this session</small></div></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Assessment history</h3><p class="muted" id="historyText">Complete an assessment to add your own results here. The dashboard currently shows illustrative demo data.</p></div>
+  </section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const questions=[
+ {topic:"Functions",q:"Which keyword is used to define a function in Python?",opts:["func","define","def","function"],a:2,kind:"Knowledge",why:"The 'def' keyword begins a function definition in Python."},
+ {topic:"Conditional statements",q:"What is the purpose of an if statement?",opts:["Repeat code forever","Execute code when a condition is true","Create a list","Import a library"],a:1,kind:"Conceptual",why:"An if statement makes execution depend on whether a condition is true."},
+ {topic:"Loops",q:"How many times does this loop run?  for i in range(3):",opts:["2","3","4","It never runs"],a:1,kind:"Execution tracing",why:"range(3) produces 0, 1 and 2: three iterations."},
+ {topic:"Recursion",q:"What is the main purpose of a base case in recursion?",opts:["Make the function run faster always","Stop recursive calls","Create a variable","Repeat the first call"],a:1,kind:"Conceptual reasoning",why:"A base case provides a stopping condition for recursive calls."},
+ {topic:"Lists",q:"What is the index of the first element in a Python list?",opts:["0","1","-1","It depends on list size"],a:0,kind:"Conceptual",why:"Python lists use zero-based indexing."}
+];
+let qIndex=0,answers=[],currentSubject="Python Programming",attempts=0;
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(page).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const titles={dashboard:'Your learning dashboard',subjects:'Explore subjects',assessment:'Diagnostic assessment',diagnosis:'MistakeDNA analysis',path:'Your learning path',analytics:'Learning analytics'};document.getElementById('pageTitle').textContent=titles[page]||'SYNAPX';}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2600)}
+function startAssessment(subject){currentSubject=subject;go('assessment');document.getElementById('quizBox').innerHTML=`<div class="empty"><div style="font-size:38px;color:var(--green)">◈</div><h3>${subject} diagnostic</h3><p>Five questions · About 3 minutes · No grades, just learning insights.</p><button class="btn" onclick="beginQuiz()">Begin assessment</button></div>`}
+function beginQuiz(){qIndex=0;answers=[];renderQuestion()}
+function renderQuestion(){let q=questions[qIndex],box=document.getElementById('quizBox');box.innerHTML=`<div class="qmeta"><span>QUESTION ${qIndex+1} OF ${questions.length}</span><span>${q.topic}</span></div><div class="progress"><i style="width:${(qIndex/questions.length)*100}%"></i></div><div class="qtext">${q.q}</div><div class="options">${q.opts.map((o,i)=>`<button class="option" onclick="choose(${i})">${String.fromCharCode(65+i)}. &nbsp;${o}</button>`).join('')}</div><div class="feedback" id="feedback"></div><div class="between" style="margin-top:18px"><span class="muted" style="font-size:11px">Choose one answer to continue.</span><button class="btn" id="nextBtn" disabled onclick="nextQuestion()">Continue →</button></div>`}
+function choose(i){if(answers[qIndex])return;answers[qIndex]={selected:i,correct:i===questions[qIndex].a};document.querySelectorAll('.option').forEach((b,j)=>{b.disabled=true;if(j===questions[qIndex].a)b.classList.add('correct');if(j===i&&i!==questions[qIndex].a)b.classList.add('wrong')});let f=document.getElementById('feedback');f.style.display='block';f.textContent=(i===questions[qIndex].a?'Correct. ':'Not quite. ')+questions[qIndex].why;document.getElementById('nextBtn').disabled=false}
+function nextQuestion(){if(qIndex<questions.length-1){qIndex++;renderQuestion()}else finishQuiz()}
+function finishQuiz(){attempts++;let score=Math.round(answers.filter(a=>a.correct).length/questions.length*100);let missed=answers.map((a,i)=>!a.correct?questions[i]:null).filter(Boolean);let box=document.getElementById('quizBox');box.innerHTML=`<div class="eyebrow">ASSESSMENT COMPLETE</div><h2 style="font-size:32px;margin:8px 0">${score}% <span class="muted" style="font-size:15px">initial score</span></h2><p class="muted">You answered ${answers.filter(a=>a.correct).length} of ${questions.length} questions correctly.</p><div class="card" style="margin:18px 0;background:#0a170e"><h3>What SYNAPX observed</h3><p>${missed.length?`You may benefit from reviewing: ${missed.map(x=>x.topic).join(', ')}.`:'Good work. Continue with a more challenging assessment to verify mastery.'}</p><p class="muted" style="font-size:12px">These are preliminary signals from a short quiz, not a definitive diagnosis.</p></div><div class="row"><button class="btn" onclick="go('diagnosis')">View MistakeDNA →</button><button class="btn secondary" onclick="go('path')">See learning path</button></div>`;
+document.getElementById('statPractice').textContent=4+attempts;document.getElementById('attemptCount').textContent=attempts+' completed in this session';document.getElementById('historyText').textContent=`Latest assessment: ${score}% · ${new Date().toLocaleTimeString()}. ${missed.length} topic(s) flagged for review.`;toast('Your learning profile has been updated.')}
+function completeStep(btn){btn.textContent='✓ Completed';btn.disabled=true;btn.classList.add('ghost');toast('Learning activity marked complete.')}
+</script>
+</body>
+</html>
