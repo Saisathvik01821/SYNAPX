@@ -1,0 +1,513 @@
+
+const subjects = [
+  {
+    name: "Python",
+    icon: "🐍",
+    description: "Programming fundamentals and Python development.",
+    topics: [
+      {
+        title: "Introduction to Python",
+        definition: "Python is a high-level, interpreted programming language.",
+        theory: "Python is known for its readable syntax and simple structure. It is used in web development, automation, data science and artificial intelligence.",
+        example: "print('Hello, World!')",
+        application: "Used in automation, AI, machine learning and web applications.",
+        mistakes: "Forgetting indentation, incorrect variable names and missing quotation marks."
+      },
+      {
+        title: "Variables and Data Types",
+        definition: "Variables are names used to store data in a program.",
+        theory: "Python supports integers, floating-point numbers, strings and Boolean values. Python automatically identifies the data type.",
+        example: "name = 'Sathvik'\nage = 17\nmarks = 85.5\nis_student = True",
+        application: "Storing names, marks, calculations and user information.",
+        mistakes: "Using undefined variables or confusing strings with numbers."
+      },
+      {
+        title: "Conditional Statements",
+        definition: "Conditional statements execute code depending on a condition.",
+        theory: "Python uses if, elif and else to make decisions. Conditions are evaluated as True or False.",
+        example: "marks = 75\nif marks >= 40:\n    print('Pass')\nelse:\n    print('Fail')",
+        application: "Grading systems, login checks and decision-making programs.",
+        mistakes: "Incorrect indentation and using assignment instead of comparison."
+      }
+    ]
+  },
+  {
+    name: "C Programming",
+    icon: "💻",
+    description: "Learn structured programming using C.",
+    topics: [
+      {
+        title: "Introduction to C",
+        definition: "C is a general-purpose procedural programming language.",
+        theory: "C is widely used to understand programming fundamentals, memory concepts and system software.",
+        example: "#include <stdio.h>\nint main() {\n    printf(\"Hello World\");\n    return 0;\n}",
+        application: "Operating systems, embedded systems and system programming.",
+        mistakes: "Missing semicolons, incorrect format specifiers and missing header files."
+      },
+      {
+        title: "Variables and Data Types",
+        definition: "Variables store values that a program can use.",
+        theory: "Common C data types include int, char, float and double. Each type stores a different kind of value.",
+        example: "int age = 17;\nfloat price = 25.5;\nchar grade = 'A';",
+        application: "Storing numbers, characters and decimal values.",
+        mistakes: "Using incompatible data types or forgetting declarations."
+      }
+    ]
+  },
+  {
+    name: "C++",
+    icon: "⚙️",
+    description: "Programming with object-oriented concepts.",
+    topics: [
+      {
+        title: "Introduction to C++",
+        definition: "C++ is a general-purpose programming language that supports procedural and object-oriented programming.",
+        theory: "C++ extends C with features such as classes, objects, inheritance and polymorphism.",
+        example: "#include <iostream>\nusing namespace std;\nint main() {\n    cout << \"Hello World\";\n    return 0;\n}",
+        application: "Games, software development and performance-critical applications.",
+        mistakes: "Missing semicolons and incorrect use of cout and cin."
+      },
+      {
+        title: "Classes and Objects",
+        definition: "A class is a blueprint, and an object is an instance of that class.",
+        theory: "Classes combine data members and member functions. Objects use these members.",
+        example: "class Student {\npublic:\n    int marks;\n};\nStudent s;\ns.marks = 90;",
+        application: "Student management systems and real-world software models.",
+        mistakes: "Confusing classes with objects and misunderstanding access specifiers."
+      }
+    ]
+  },
+  {
+    name: "Java",
+    icon: "☕",
+    description: "Object-oriented programming with Java.",
+    topics: [
+      {
+        title: "Introduction to Java",
+        definition: "Java is a high-level, object-oriented programming language.",
+        theory: "Java source code is compiled into bytecode, which runs on the Java Virtual Machine.",
+        example: "class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World\");\n    }\n}",
+        application: "Enterprise applications, Android development and backend systems.",
+        mistakes: "Incorrect class names and mistakes in the main method."
+      }
+    ]
+  },
+  {
+    name: "JavaScript",
+    icon: "🌐",
+    description: "Build interactive web applications.",
+    topics: [
+      {
+        title: "Introduction to JavaScript",
+        definition: "JavaScript is a programming language used to make websites interactive.",
+        theory: "JavaScript runs in browsers and can also run on servers using environments such as Node.js.",
+        example: "let name = 'SYNAPX';\nconsole.log(name);",
+        application: "Web interfaces, server applications and interactive websites.",
+        mistakes: "Confusing == and === or using variables before defining them."
+      }
+    ]
+  },
+  {
+    name: "Data Structures and Algorithms",
+    icon: "🧩",
+    description: "Learn problem-solving and data organization.",
+    topics: [
+      {
+        title: "Introduction to DSA",
+        definition: "DSA means Data Structures and Algorithms.",
+        theory: "Data structures organize data, while algorithms describe steps to solve problems efficiently.",
+        example: "An array stores multiple values in an ordered collection.",
+        application: "Search engines, databases, applications and software development.",
+        mistakes: "Choosing unsuitable data structures and ignoring time complexity."
+      },
+      {
+        title: "Arrays",
+        definition: "An array stores multiple elements in an ordered collection.",
+        theory: "Array elements are accessed using indexes. In many programming languages, indexing starts at zero.",
+        example: "arr = [10, 20, 30]\nprint(arr[0])",
+        application: "Storing marks, lists and collections of data.",
+        mistakes: "Accessing an index outside the valid range."
+      },
+      {
+        title: "Stacks and Queues",
+        definition: "Stacks and queues are linear data structures.",
+        theory: "A stack follows LIFO (Last In, First Out). A queue follows FIFO (First In, First Out).",
+        example: "Stack: push(10), push(20), pop()\nQueue: enqueue(10), enqueue(20), dequeue()",
+        application: "Undo operations, browser history, scheduling and task processing.",
+        mistakes: "Confusing the insertion and deletion order."
+      },
+      {
+        title: "Linked Lists",
+        definition: "A linked list is a collection of nodes connected using links.",
+        theory: "Each node stores data and a reference to another node. Common types include singly, doubly and circular linked lists.",
+        example: "A node contains data and a next reference.",
+        application: "Dynamic collections and memory management.",
+        mistakes: "Losing references while inserting or deleting nodes."
+      },
+      {
+        title: "Trees",
+        definition: "A tree is a hierarchical, non-linear data structure.",
+        theory: "A tree contains nodes connected by edges. Important terms include root, parent, child, leaf and height.",
+        example: "A binary tree allows each node to have at most two children.",
+        application: "File systems, searching and database indexing.",
+        mistakes: "Confusing tree traversal methods."
+      }
+    ]
+  },
+  {
+    name: "Mathematics",
+    icon: "📐",
+    description: "Strengthen mathematical thinking.",
+    topics: [
+      {
+        title: "Mean, Median and Mode",
+        definition: "Mean, median and mode are measures of central tendency.",
+        theory: "Mean is the average, median is the middle value after sorting, and mode is the most frequent value.",
+        example: "For 2, 3, 3, 7, 10: Mean = 5, Median = 3, Mode = 3.",
+        application: "Statistics, data analysis and research.",
+        mistakes: "Forgetting to sort values before finding the median."
+      },
+      {
+        title: "Probability",
+        definition: "Probability measures the chance of an event occurring.",
+        theory: "For equally likely outcomes, probability equals favourable outcomes divided by total possible outcomes.",
+        example: "For a fair coin, P(Heads) = 1/2.",
+        application: "Statistics, AI and decision-making.",
+        mistakes: "Counting outcomes incorrectly."
+      }
+    ]
+  },
+  {
+    name: "DBMS",
+    icon: "🗄️",
+    description: "Database management systems.",
+    topics: [
+      {
+        title: "Introduction to DBMS",
+        definition: "DBMS is software used to create, store, organize and manage databases.",
+        theory: "It provides controlled access to data and supports operations such as inserting, updating, deleting and retrieving records.",
+        example: "SELECT * FROM Students;",
+        application: "Banking, college management and online shopping.",
+        mistakes: "Confusing a database with a DBMS."
+      }
+    ]
+  },
+  {
+    name: "Operating Systems",
+    icon: "🖥️",
+    description: "Understand how computers manage resources.",
+    topics: [
+      {
+        title: "Introduction to Operating Systems",
+        definition: "An operating system manages computer hardware and software resources.",
+        theory: "It manages processes, memory, files and input/output devices.",
+        example: "Windows, Linux, macOS and Android are operating systems.",
+        application: "Managing applications and computer resources.",
+        mistakes: "Confusing an operating system with an application."
+      }
+    ]
+  },
+  {
+    name: "Computer Networks",
+    icon: "🌍",
+    description: "Understand communication between computers.",
+    topics: [
+      {
+        title: "Introduction to Networks",
+        definition: "A computer network connects devices to exchange information.",
+        theory: "Networks use communication protocols. Common categories include LAN, MAN and WAN.",
+        example: "A college computer lab connected through a local network.",
+        application: "Internet communication, file sharing and online services.",
+        mistakes: "Confusing network types and communication protocols."
+      }
+    ]
+  },
+  {
+    name: "Artificial Intelligence",
+    icon: "🤖",
+    description: "Explore intelligent systems and AI concepts.",
+    topics: [
+      {
+        title: "Introduction to AI",
+        definition: "Artificial Intelligence enables machines to perform tasks that normally require human intelligence.",
+        theory: "AI includes areas such as reasoning, search, machine learning, language processing and computer vision.",
+        example: "A system that classifies pictures of cats and dogs.",
+        application: "Assistants, recommendations and image recognition.",
+        mistakes: "Assuming every automated program is AI."
+      }
+    ]
+  },
+  {
+    name: "Machine Learning",
+    icon: "🧠",
+    description: "Teach computers to learn from data.",
+    topics: [
+      {
+        title: "Introduction to Machine Learning",
+        definition: "Machine Learning is a branch of AI in which systems learn patterns from data.",
+        theory: "Major learning types include supervised, unsupervised and reinforcement learning.",
+        example: "Training a model using labelled emails to classify spam.",
+        application: "Recommendations, forecasting and classification.",
+        mistakes: "Training and testing on the same data without proper evaluation."
+      }
+    ]
+  }
+];
+
+let currentSubject = null;
+let currentTopic = null;
+
+const $ = (selector) => document.querySelector(selector);
+
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.toggle("active", page.id === pageId);
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function createSubjectCard(subject) {
+  return `
+    <article class="subject-card" data-subject="${subject.name}">
+      <div class="subject-icon">${subject.icon}</div>
+      <h3>${subject.name}</h3>
+      <p>${subject.description}</p>
+      <p style="margin-top:12px;color:var(--green)">
+        ${subject.topics.length} starter topics →
+      </p>
+    </article>
+  `;
+}
+
+function renderSubjects() {
+  const cards = subjects.map(createSubjectCard).join("");
+
+  $("#allSubjects").innerHTML = cards;
+
+  $("#featuredSubjects").innerHTML =
+    subjects.slice(0, 4).map(createSubjectCard).join("");
+
+  $("#subjectCount").textContent = subjects.length;
+}
+
+function openSubject(subjectName) {
+  currentSubject = subjects.find(s => s.name === subjectName);
+
+  if (!currentSubject) return;
+
+  $("#lessonContent").innerHTML = `
+    <p class="eyebrow">SUBJECT LEARNING PATH</p>
+    <h1>${currentSubject.icon} ${currentSubject.name}</h1>
+    <p class="intro">${currentSubject.description}</p>
+    <div class="lesson-box">
+      <h2>Topics</h2>
+      ${currentSubject.topics.map((topic, index) => `
+        <button class="quiz-option topic-button" data-topic-index="${index}">
+          ${index + 1}. ${topic.title} →
+        </button>
+      `).join("")}
+    </div>
+  `;
+
+  showPage("lesson");
+}
+
+function openTopic(index) {
+  if (!currentSubject) return;
+
+  currentTopic = currentSubject.topics[index];
+
+  if (!currentTopic) return;
+
+  $("#lessonContent").innerHTML = `
+    <button class="back-btn" id="backToSubject">
+      ← Back to ${currentSubject.name}
+    </button>
+
+    <p class="eyebrow">${currentSubject.name.toUpperCase()}</p>
+    <h1>${currentTopic.title}</h1>
+
+    <div class="lesson-box">
+      <h2>Simple Definition</h2>
+      <p>${currentTopic.definition}</p>
+    </div>
+
+    <div class="lesson-box">
+      <h2>Explanation</h2>
+      <p>${currentTopic.theory}</p>
+    </div>
+
+    <div class="lesson-box">
+      <h2>Example</h2>
+      <pre style="white-space:pre-wrap;overflow-wrap:anywhere;color:var(--green)">${currentTopic.example}</pre>
+    </div>
+
+    <div class="lesson-box">
+      <h2>Real-world Applications</h2>
+      <p>${currentTopic.application}</p>
+    </div>
+
+    <div class="lesson-box">
+      <h2>Common Mistakes</h2>
+      <p>${currentTopic.mistakes}</p>
+    </div>
+
+    <div class="lesson-box">
+      <h2>Quick Knowledge Check</h2>
+      <p>What is the main concept of this topic?</p>
+      <button class="quiz-option" data-answer="correct">
+        Understand the definition and how the concept works
+      </button>
+      <button class="quiz-option" data-answer="wrong">
+        Memorize only the topic name
+      </button>
+      <div id="topicQuizResult" class="quiz-result"></div>
+    </div>
+  `;
+
+  $("#backToSubject").addEventListener("click", () => {
+    openSubject(currentSubject.name);
+  });
+
+  document.querySelectorAll("[data-answer]").forEach(button => {
+    button.addEventListener("click", () => {
+      const correct = button.dataset.answer === "correct";
+
+      $("#topicQuizResult").textContent = correct
+        ? "Correct! Understanding the concept is important."
+        : "Try again. Focus on understanding the concept.";
+
+      if (correct) {
+        saveProgress(currentSubject.name, currentTopic.title, true);
+      } else {
+        saveProgress(currentSubject.name, currentTopic.title, false);
+      }
+    });
+  });
+}
+
+async function saveProgress(subject, topic, correct) {
+  try {
+    const response = await fetch("/api/progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subject, topic, correct })
+    });
+
+    if (!response.ok) throw new Error("Progress save failed");
+
+    renderProgress();
+  } catch (error) {
+    console.error(error);
+    alert("Could not save progress. Check your backend connection.");
+  }
+}
+
+async function renderProgress() {
+  try {
+    const response = await fetch("/api/progress");
+
+    if (!response.ok) throw new Error("Could not load progress");
+
+    const records = await response.json();
+
+    const attempts = records.length;
+    const correct = records.filter(item => item.correct === 1).length;
+
+    $("#attemptCount").textContent = attempts;
+    $("#correctCount").textContent = correct;
+
+    $("#progressContent").innerHTML = records.length
+      ? records.map(item => `
+          <div class="progress-item">
+            <strong>${item.subject}</strong>
+            <p>${item.topic}</p>
+            <span style="color:${item.correct ? "var(--green)" : "#e7aa59"}">
+              ${item.correct ? "Correct" : "Needs revision"}
+            </span>
+          </div>
+        `).join("")
+      : `<p class="empty-state">No learning activity yet. Start a lesson!</p>`;
+  } catch (error) {
+    $("#progressContent").innerHTML =
+      `<p class="empty-state">Progress will appear when the backend is connected.</p>`;
+  }
+}
+
+function addMessage(message, type) {
+  const element = document.createElement("div");
+  element.className = `message ${type}`;
+  element.textContent = message;
+
+  $("#chatMessages").appendChild(element);
+  $("#chatMessages").scrollTop = $("#chatMessages").scrollHeight;
+
+  return element;
+}
+
+async function sendMessage(message) {
+  addMessage(message, "user");
+
+  const loading = addMessage("BUJJI is thinking...", "bot");
+
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "BUJJI could not respond.");
+    }
+
+    loading.textContent = data.reply;
+  } catch (error) {
+    loading.textContent = error.message;
+  }
+}
+
+$("#chatForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const input = $("#chatInput");
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  input.value = "";
+  sendMessage(message);
+});
+
+document.addEventListener("click", event => {
+  const pageButton = event.target.closest("[data-page]");
+
+  if (pageButton) {
+    showPage(pageButton.dataset.page);
+  }
+
+  const subjectCard = event.target.closest("[data-subject]");
+
+  if (subjectCard) {
+    openSubject(subjectCard.dataset.subject);
+  }
+
+  const topicButton = event.target.closest("[data-topic-index]");
+
+  if (topicButton) {
+    openTopic(Number(topicButton.dataset.topicIndex));
+  }
+});
+
+$("#themeBtn").addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  $("#themeBtn").textContent =
+    document.body.classList.contains("light") ? "🌙" : "☀️";
+});
+
+renderSubjects();
+renderProgress();
