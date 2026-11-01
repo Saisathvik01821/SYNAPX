@@ -1,0 +1,129 @@
+
+import os
+import sqlite3
+from datetime import datetime
+
+from flask import Flask, jsonify, render_template, request
+from openai import OpenAI
+
+app = Flask(__name__)
+
+DATABASE = os.environ.get("DATABASE_PATH", "synapx.db")
+
+
+def connect_db():
+    db = sqlite3.connect(DATABASE)
+    db.row_factory = sqlite3.Row
+    return db
+
+
+def initialize_database():
+    with connect_db() as db:
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS progress (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                subject TEXT,
+                topic TEXT,
+                correct INTEGER,
+                created_at TEXT
+            )
+        """)
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/api/health")
+def health():
+    return jsonify({
+        "status": "SYNAPX backend running",
+        "ai_configured": bool(os.environ.get("OPENAI_API_KEY"))
+    })
+
+
+@app.route("/api/chat", methods=["POST"])
+def chat():
+    data = request.get_json(silent=True) or {}
+    message = str(data.get("message", "")).strip()
+
+    if not message:
+        return jsonify({"error": "Please enter a question."}), 400
+
+    if len(message) > 5000:
+        return jsonify({"error": "Message is too long."}), 400
+
+    api_key = os.environ.get("OPENAI_API_KEY")
+
+    if not api_key:
+        return jsonify({
+            "error": "BUJJI AI is not configured on the server yet."
+        }), 503
+
+    try:
+        client = OpenAI(api_key=api_key)
+
+        response = client.responses.create(
+            model=os.environ.get("OPENAI_MODEL", "gpt-5.5"),
+            instructions=(
+                "You are BUJJI, the educational AI assistant "
+                "inside SYNAPX. Explain concepts in simple language. "
+                "Give step-by-step explanations and examples. "
+                "Help with programming, mathematics, science, "
+                "computer science and general learning. "
+                "Be accurate and admit when you are unsure."
+            ),
+            input=message,
+            max_output_tokens=900
+        )
+
+        return jsonify({
+            "reply": response.output_text
+        })
+
+    except Exception:
+        app.logger.exception("BUJJI AI error")
+        return jsonify({
+            "error": "BUJJI could not connect to the AI service."
+        }), 502
+
+
+@app.route("/api/progress", methods=["POST"])
+def save_progress():
+    data = request.get_json(silent=True) or {}
+
+    with connect_db() as db:
+        db.execute("""
+            INSERT INTO progress
+            (subject, topic, correct, created_at)
+            VALUES (?, ?, ?, ?)
+        """, (
+            str(data.get("subject", "General"))[:100],
+            str(data.get("topic", "Topic"))[:160],
+            int(bool(data.get("correct"))),
+            datetime.utcnow().isoformat()
+        ))
+
+    return jsonify({"saved": True})
+
+
+@app.route("/api/progress", methods=["GET"])
+def get_progress():
+    with connect_db() as db:
+        records = db.execute("""
+            SELECT subject, topic, correct, created_at
+            FROM progress
+            ORDER BY id DESC
+            LIMIT 100
+        """).fetchall()
+
+    return jsonify([dict(row) for row in records])
+
+
+if __name__ == "__main__":
+    initialize_database()
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
+    )
